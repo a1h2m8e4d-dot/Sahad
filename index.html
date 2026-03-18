@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد د/ شهد</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; background: #fff5f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        #container { text-align: center; position: relative; z-index: 2; }
+        
+        /* البالونة */
+        .balloon {
+            width: 150px; height: 180px;
+            background: #ff4d6d; border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            position: relative; cursor: pointer;
+            display: flex; justify-content: center; align-items: center;
+            color: white; font-weight: bold; font-size: 1.1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        .balloon:before {
+            content: ""; position: absolute; width: 2px; height: 100px;
+            background: #999; top: 180px; left: 75px;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        #content { display: none; padding: 20px; }
+        h1 { color: #ff4d6d; font-size: 1.6rem; line-height: 1.6; }
+        
+        .surprise-btn {
+            background: #d4af37; color: white; border: none;
+            padding: 15px 35px; border-radius: 30px;
+            font-size: 1.3rem; cursor: pointer; margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: 0.3s;
+        }
+        .surprise-btn:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <audio id="birthdaySong" src="song.mp3"></audio>
+
+    <div id="container">
+        <div id="balloon" class="balloon" onclick="popBalloon()">اضغطي ع البالونه 🎈</div>
+
+        <div id="content">
+            <h1>كل سنه و انتي طيبه ي دكتور شهد <br> وسنه سعيده عليكي يارب <br> وتحققي كل اللي بتتمنيه 🎂</h1>
+            <p>دوسي علي الزرار دا في مفاجأة...</p>
+            <button class="surprise-btn" onclick="playMusic()">المفاجأة 🎁</button>
+        </div>
+    </div>
+
+    <script>
+        function popBalloon() {
+            // إخفاء البالونة وإظهار المحتوى
+            document.getElementById('balloon').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        function playMusic() {
+            var audio = document.getElementById('birthdaySong');
+            audio.play();
+            alert("عيد ميلاد سعيد يا دكتورة شهد! ✨استني اسمعي الاغنيه ");
+        }
+    </script>
+
+</body>
+</html>
